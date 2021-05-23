@@ -50,8 +50,23 @@ int dfs(int v, int *arr, int *visited){
     visited[v]=1;
     return arr[v]=dfs(arr[v],arr,visited);
 }*/
-
+int dp[100005];
 void run(){
+    string s;
+    cin>>s;
+    int n=s.size();
+    forb(i,n){
+        dp[i]=dp[i-1]+(s[i]==s[i-1]);
+    }
+    //fora(i,n) cout<<dp[i]<<" ";
+    //cout<<'\n';
+    int m;
+    cin>>m;
+    fora(i,m){
+        int l,r;
+        cin>>l>>r;
+        cout<<dp[r-1]-dp[l-1]<<"\n";
+    }
 }
 
 int main() {
