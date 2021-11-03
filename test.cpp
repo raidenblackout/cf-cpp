@@ -56,24 +56,32 @@ int dfs(int v, int *arr, int *visited){
     visited[v]=1;
     return arr[v]=dfs(arr[v],arr,visited);
 }*/
-void dijsktra(vector<vector<pair<int,int>>> &graph,int u){
-    priority_queue<pair<int,pair<int,int>>> q;
-    q.push({0,{0,0}});
-    while(!q.empty()){
-        pair<int,pair<int,int>> temp=q.top();
-        q.pop();
-        int u=temp.second.first;
-        int 
-    }
-}
 
 void run(){
     int t;
     cin>>t;
     while(t--){
-
+        int n,k;
+        cin>>n>>k;
+        vector<int> arr(n);
+        fora(i,n){
+            cin>>arr[i];
+        }
+        map<int,int> mp;
+        bool found=0;
+        fora(i,n){
+            if(mp[k-arr[i]]!=0){
+                cout<<mp[k-arr[i]]<<" "<<i+1<<"\n";
+                found=1;
+                break;
+            }else{
+                mp[arr[i]]=i+1;
+            }
+        }
+        if(!found){
+            cout<<"No solution\n";
+        }
     }
-
 }
 
 int main() {
